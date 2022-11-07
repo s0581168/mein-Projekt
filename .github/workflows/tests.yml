@@ -16,3 +16,5 @@ jobs:
         run: ./gradlew clean test --info --stacktrace
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+      - name: Run Backend Tests
+        run: ./gradlew test
