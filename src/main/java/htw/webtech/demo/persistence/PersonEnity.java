@@ -1,13 +1,15 @@
 package htw.webtech.demo.persistence;
 
-import org.springframework.data.annotation.Id;
+import org.hibernate.annotations.AccessType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-@Entity(name = "persons")
+import javax.persistence.*;
+
+@Entity(name ="persons")
 public class PersonEnity {
 
     @Id
@@ -20,6 +22,9 @@ public class PersonEnity {
 
     @Column(name = "last_name", nullable = false)
     private String lastName;
+
+    @Column(name = "test")
+    private String testColumn;
 
     public PersonEnity(Long id, String firstName, String lastName) {
         this.id = id;
@@ -47,5 +52,13 @@ public class PersonEnity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getTestColumn(){
+        return testColumn;
+    }
+
+    public void setTestColumn(String testColumn) {
+        this.testColumn = testColumn;
     }
 }
