@@ -14,20 +14,18 @@ public class PersonEnity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "test")
-    private String testColumn;
 
-    public PersonEnity(Long id, String firstName, String lastName) {
-        this.id = id;
+    public PersonEnity(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -54,11 +52,4 @@ public class PersonEnity {
         this.lastName = lastName;
     }
 
-    public String getTestColumn(){
-        return testColumn;
-    }
-
-    public void setTestColumn(String testColumn) {
-        this.testColumn = testColumn;
-    }
 }
