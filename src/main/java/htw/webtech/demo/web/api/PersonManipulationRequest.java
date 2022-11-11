@@ -1,10 +1,10 @@
 package htw.webtech.demo.web.api;
 
-public class PersonCreateRequest {
+public class PersonManipulationRequest {
     private String firstName;
     private String lastName;
 
-    public PersonCreateRequest(String firstName, String lastName) {
+    public PersonManipulationRequest(String firstName, String lastName) {
 
         this.firstName = firstName;
         this.lastName = lastName;
