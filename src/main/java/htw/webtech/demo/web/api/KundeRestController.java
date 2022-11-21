@@ -36,7 +36,7 @@ public class KundeRestController {
     @PostMapping(path = "/api/v1/kunde_verwaltung")
     public ResponseEntity<Void> createPerson(@RequestBody KundeManipulationRequest request) throws URISyntaxException {
         var person = kundeService.create(request);
-        URI uri = new URI("/api/v1/kunde_verwaltung" + person.getId());
+        URI uri = new URI("/api/v1/kunde_verwaltung/" + person.getId());
         return ResponseEntity.created(uri).build();
 
     }
