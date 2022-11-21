@@ -1,17 +1,24 @@
 package htw.webtech.demo.web.api;
 
 
-public class Person {
+import java.sql.Date;
+
+public class Kunde {
 
     private long id;
     private String firstName;
     private String lastName;
 
-    public Person(long id, String firstName, String lastName) {
+    private Date geburtsDatum;
 
+    private String eMail;
+
+    public Kunde(long id, String firstName, String lastName, Date geburtsDatum, String eMail) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.geburtsDatum = geburtsDatum;
+        this.eMail = eMail;
     }
 
     public long getId() {
@@ -36,5 +43,21 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Date getGeburtsDatum() {
+        return geburtsDatum;
+    }
+
+    public void setGeburtsDatum(Date geburtsDatum) {
+        this.geburtsDatum = geburtsDatum;
+    }
+
+    public String geteMail() {
+        return eMail;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
     }
 }
