@@ -18,6 +18,8 @@ public class KundeManipulationRequest {
         this.eMail = eMail;
     }
 
+    public KundeManipulationRequest(){}
+
     public String getFirstName() {
         return firstName;
     }
