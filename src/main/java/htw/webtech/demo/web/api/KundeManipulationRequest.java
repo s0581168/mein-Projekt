@@ -1,14 +1,23 @@
 package htw.webtech.demo.web.api;
 
+import javax.validation.constraints.*;
 import java.sql.Date;
 
 public class KundeManipulationRequest {
+    @Size(min = 3, message = "Please provide a first name with 3 characters or more.")
     private String firstName;
+
+    @NotBlank(message = "The last name must not be empty.")
     private String lastName;
 
+
+    @Past(message = "the geburtsdatum must to be the past.")
     private Date geburtsDatum;
 
+
+    @Email(message = "The e-mail must be in e-mail form.")
     private String eMail;
+
 
     public KundeManipulationRequest(String firstName, String lastName, Date geburtsDatum, String eMail) {
 

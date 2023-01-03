@@ -35,9 +35,15 @@ public class KundeRestController {
 
     @PostMapping(path = "/api/v1/kunde_verwaltung")
     public ResponseEntity<Void> createPerson(@RequestBody KundeManipulationRequest request) throws URISyntaxException {
-        var person = kundeService.create(request);
-        URI uri = new URI("/api/v1/kunde_verwaltung/" + person.getId());
-        return ResponseEntity.created(uri).build();
+        var valid = validate(request);
+        if(valid) {
+            var person = kundeService.create(request);
+            URI uri = new URI("/api/v1/kunde_verwaltung/" + person.getId());
+            return ResponseEntity.created(uri).build();
+        }
+        else {
+            return ResponseEntity.badRequest().build();
+        }
 
     }
 
@@ -51,6 +57,16 @@ public class KundeRestController {
     public ResponseEntity<Void> deletePerson(@PathVariable Long id){
         boolean successful = kundeService.deleteById(id);
         return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
+
+    private  boolean validate(KundeManipulationRequest request) {
+        return request.getFirstName() != null
+                && !request.getFirstName().isBlank()
+                && request.getLastName() != null
+                && !request.getLastName().isBlank()
+                && request.getGeburtsDatum() != null
+                && request.geteMail() != null
+                && !request.geteMail().isBlank();
     }
 
 }
