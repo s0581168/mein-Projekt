@@ -4,6 +4,7 @@ import htw.webtech.demo.web.service.KundeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -34,7 +35,7 @@ public class KundeRestController {
     }
 
     @PostMapping(path = "/api/v1/kunde_verwaltung")
-    public ResponseEntity<Void> createPerson(@RequestBody KundeManipulationRequest request) throws URISyntaxException {
+    public ResponseEntity<Void> createPerson(@Valid @RequestBody KundeManipulationRequest request) throws URISyntaxException {
         var valid = validate(request);
         if(valid) {
             var person = kundeService.create(request);

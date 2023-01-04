@@ -4,7 +4,7 @@ import javax.validation.constraints.*;
 import java.sql.Date;
 
 public class KundeManipulationRequest {
-    @Size(min = 3, message = "Please provide a first name with 3 characters or more.")
+    @Size(min = 3 , message = "Please provide a first name with 3 characters or more.")
     private String firstName;
 
     @NotBlank(message = "The last name must not be empty.")
