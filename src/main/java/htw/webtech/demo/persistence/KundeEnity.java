@@ -26,15 +26,15 @@ public class KundeEnity {
     @Column(name = "geburt_datum")
     private Date geburtsDatum;
 
-    @Column(name = "e_mail")
-    private String eMail;
+    @Column(name = "telefonnummer")
+    private Integer telefonnummer;
 
 
-    public KundeEnity(String firstName, String lastName, Date geburtsDatum, String eMail) {
+    public KundeEnity(String firstName, String lastName, Date geburtsDatum, Integer telefonnummer) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.geburtsDatum = geburtsDatum;
-        this.eMail = eMail;
+        this.telefonnummer = telefonnummer;
     }
 
     protected KundeEnity(){}
@@ -67,11 +67,11 @@ public class KundeEnity {
         this.geburtsDatum = geburtsDatum;
     }
 
-    public String geteMail() {
-        return eMail;
+    public Integer getTelefonnummer() {
+        return telefonnummer;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setTelefonnummer(Integer telefonnummer) {
+        this.telefonnummer = telefonnummer;
     }
 }

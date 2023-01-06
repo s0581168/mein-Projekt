@@ -49,7 +49,7 @@ public class KundeRestController {
     }
 
     @PutMapping(path = "/api/v1/kunde_verwaltung/{id}")
-    public ResponseEntity<Kunde> updatePerson(@PathVariable Long id, @RequestBody KundeManipulationRequest request ) {
+    public ResponseEntity<Kunde> updatePerson(@Valid@PathVariable Long id, @RequestBody KundeManipulationRequest request ) {
         var person = kundeService.update(id, request);
         return person != null? ResponseEntity.ok(person) : ResponseEntity.notFound().build();
   }
@@ -66,8 +66,7 @@ public class KundeRestController {
                 && request.getLastName() != null
                 && !request.getLastName().isBlank()
                 && request.getGeburtsDatum() != null
-                && request.geteMail() != null
-                && !request.geteMail().isBlank();
+                && request.getTelefonnumer() != null;
     }
 
 }

@@ -15,16 +15,16 @@ public class KundeManipulationRequest {
     private Date geburtsDatum;
 
 
-    @Email(message = "The e-mail must be in e-mail form.")
-    private String eMail;
+
+    private Integer telefonnumer;
 
 
-    public KundeManipulationRequest(String firstName, String lastName, Date geburtsDatum, String eMail) {
+    public KundeManipulationRequest(String firstName, String lastName, Date geburtsDatum, Integer telefonnumer) {
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.geburtsDatum = geburtsDatum;
-        this.eMail = eMail;
+        this.telefonnumer = telefonnumer;
     }
 
     public KundeManipulationRequest(){}
@@ -53,11 +53,11 @@ public class KundeManipulationRequest {
         this.geburtsDatum = geburtsDatum;
     }
 
-    public String geteMail() {
-        return eMail;
+    public Integer getTelefonnumer() {
+        return telefonnumer;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setTelefonnumer(Integer telefonnumer) {
+        this.telefonnumer = telefonnumer;
     }
 }

@@ -33,7 +33,7 @@ public class KundeService {
     }
 
     public Kunde create(KundeManipulationRequest request) {
-        var kundeEntity = new KundeEnity(request.getFirstName(), request.getLastName(), request.getGeburtsDatum(), request.geteMail());
+        var kundeEntity = new KundeEnity(request.getFirstName(), request.getLastName(), request.getGeburtsDatum(), request.getTelefonnumer());
         kundeEntity = kundeRepository.save(kundeEntity);
         return transformEntity(kundeEntity);
 
@@ -49,7 +49,7 @@ public class KundeService {
         personEnity.setFirstName(request.getFirstName());
         personEnity.setLastName(request.getLastName());
         personEnity.setGeburtsDatum(request.getGeburtsDatum());
-        personEnity.seteMail(request.geteMail());
+        personEnity.setTelefonnummer(request.getTelefonnumer());
         kundeRepository.save(personEnity);
 
         return transformEntity(personEnity);
@@ -70,7 +70,7 @@ public class KundeService {
                 kundeEnity.getFirstName(),
                 kundeEnity.getLastName(),
                 kundeEnity.getGeburtsDatum(),
-                kundeEnity.geteMail()
+                kundeEnity.getTelefonnummer()
 
         );
     }
