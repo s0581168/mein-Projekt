@@ -2,6 +2,7 @@ package htw.webtech.demo.web.api;
 
 
 import java.sql.Date;
+import java.util.List;
 
 public class Kunde {
 
@@ -13,12 +14,15 @@ public class Kunde {
 
     private Integer telefonnummer;
 
-    public Kunde(long id, String firstName, String lastName, Date geburtsDatum, Integer telefonnummer) {
+    private List<Long> termine;
+
+    public Kunde(long id, String firstName, String lastName, Date geburtsDatum, Integer telefonnummer, List<Long> termine) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.geburtsDatum = geburtsDatum;
         this.telefonnummer = telefonnummer;
+        this.termine = termine;
     }
 
     public long getId() {
@@ -59,5 +63,13 @@ public class Kunde {
 
     public void setTelefonnummer(Integer telefonnummer) {
         this.telefonnummer = telefonnummer;
+    }
+
+    public List<Long> getTermine() {
+        return termine;
+    }
+
+    public void setTermine(List<Long> termine) {
+        this.termine = termine;
     }
 }

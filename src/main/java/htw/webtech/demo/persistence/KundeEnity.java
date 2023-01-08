@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name ="kunde")
 public class KundeEnity {
@@ -28,6 +30,9 @@ public class KundeEnity {
 
     @Column(name = "telefonnummer")
     private Integer telefonnummer;
+
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
+    private List<TerminEntity> termine = new ArrayList<>();
 
 
     public KundeEnity(String firstName, String lastName, Date geburtsDatum, Integer telefonnummer) {
@@ -73,5 +78,13 @@ public class KundeEnity {
 
     public void setTelefonnummer(Integer telefonnummer) {
         this.telefonnummer = telefonnummer;
+    }
+
+    public List<TerminEntity> getTermine() {
+        return termine;
+    }
+
+    public void setTermine(List<TerminEntity> termine) {
+        this.termine = termine;
     }
 }

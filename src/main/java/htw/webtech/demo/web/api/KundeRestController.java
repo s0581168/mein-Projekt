@@ -2,6 +2,7 @@ package htw.webtech.demo.web.api;
 
 import htw.webtech.demo.web.service.KundeService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -10,6 +11,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
+@Validated
 public class KundeRestController {
     //Logger logger = (Logger) LoggerFactory.getLogger(PersonRestController.class);
 

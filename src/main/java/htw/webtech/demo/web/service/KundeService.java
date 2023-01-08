@@ -13,46 +13,47 @@ import java.util.stream.Collectors;
 public class KundeService {
 
     private final KundeRepository kundeRepository;
+    private final KundeTransformer kundeTransformer;
 
-    public KundeService(KundeRepository kundeRepository){
+    public KundeService(KundeRepository kundeRepository, KundeTransformer kundeTransformer) {
         this.kundeRepository = kundeRepository;
-
+        this.kundeTransformer = kundeTransformer;
     }
 
     public List<Kunde> findAll(){
         List<KundeEnity> kunde = kundeRepository.findAll();
         return kunde.stream()
-                .map(this::transformEntity)
+                .map(kundeTransformer::transformEntity)
                 .collect(Collectors.toList());
 
     }
 
     public Kunde findById(Long id){
-        var personEntity = kundeRepository.findById(id);
-        return personEntity.map(this::transformEntity).orElse(null);
+        var kundeEntity = kundeRepository.findById(id);
+        return kundeEntity.map(kundeTransformer::transformEntity).orElse(null);
     }
 
     public Kunde create(KundeManipulationRequest request) {
         var kundeEntity = new KundeEnity(request.getFirstName(), request.getLastName(), request.getGeburtsDatum(), request.getTelefonnumer());
         kundeEntity = kundeRepository.save(kundeEntity);
-        return transformEntity(kundeEntity);
+        return kundeTransformer.transformEntity(kundeEntity);
 
     }
 
     public Kunde update(Long id, KundeManipulationRequest request){
-        var personEnityOptional = kundeRepository.findById(id);
-        if (personEnityOptional.isEmpty()) {
+        var kundeEnityOptional = kundeRepository.findById(id);
+        if (kundeEnityOptional.isEmpty()) {
             return null;
         }
 
-        var personEnity = personEnityOptional.get();
-        personEnity.setFirstName(request.getFirstName());
-        personEnity.setLastName(request.getLastName());
-        personEnity.setGeburtsDatum(request.getGeburtsDatum());
-        personEnity.setTelefonnummer(request.getTelefonnumer());
-        kundeRepository.save(personEnity);
+        var kundeEnity = kundeEnityOptional.get();
+        kundeEnity.setFirstName(request.getFirstName());
+        kundeEnity.setLastName(request.getLastName());
+        kundeEnity.setGeburtsDatum(request.getGeburtsDatum());
+        kundeEnity.setTelefonnummer(request.getTelefonnumer());
+        kundeEnity = kundeRepository.save(kundeEnity);
 
-        return transformEntity(personEnity);
+        return kundeTransformer.transformEntity(kundeEnity);
     }
 
     public boolean deleteById(Long id){
@@ -64,14 +65,4 @@ public class KundeService {
         return true;
     }
 
-    private Kunde transformEntity(KundeEnity kundeEnity){
-        return new Kunde(
-                kundeEnity.getId(),
-                kundeEnity.getFirstName(),
-                kundeEnity.getLastName(),
-                kundeEnity.getGeburtsDatum(),
-                kundeEnity.getTelefonnummer()
-
-        );
-    }
 }
