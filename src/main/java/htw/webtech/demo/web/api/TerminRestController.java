@@ -3,10 +3,7 @@ package htw.webtech.demo.web.api;
 
 import htw.webtech.demo.web.service.TerminService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -30,5 +27,11 @@ public class TerminRestController {
         var termin = terminService.create(request);
         URI uri = new URI("/api/v1/termine/" + termin.getId());
         return ResponseEntity.created(uri).build();
+    }
+
+    @DeleteMapping(path = "/api/v1/termine/{id}")
+    public ResponseEntity<Void> deletePerson(@PathVariable Long id){
+        boolean successful = terminService.deleteById(id);
+        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 }

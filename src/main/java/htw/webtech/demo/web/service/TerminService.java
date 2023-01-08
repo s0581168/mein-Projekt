@@ -48,5 +48,14 @@ public class TerminService {
                 kundeTransformer.transformEntity(terminEntity.getOwner()));
     }
 
+    public boolean deleteById(Long id){
+        if (!terminRepository.existsById(id)){
+            return false;
+        }
+
+        terminRepository.deleteById(id);
+        return true;
+    }
+
 
 }

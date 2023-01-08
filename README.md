@@ -5,4 +5,8 @@ Praxis eine Patientenliste erstellen. Sie erreichen die Informationen von der Pa
 schnell. Das Name, Telefonnummer, Email und Krankzustand wird leicht gefunden. Sie können auch einen neuen
 Patient hinzufügen oder seine Informationen verändern sowie löschen. Die Patientendaten haben eine sehr gut
 Sicherheit, werden verschlüsselt. Nur die Personen, die die zuständige Verantwortung haben, können den
-Liste zugreifen und schauen.
+Liste zugreifen und schauen. Sie können dazu neue Termine anlegen.
+
+basierend auf dem Kodex von Herr Wagner
+backend: https://github.com/HtwProgramming/webtech-persons-backend
+fronend: https://github.com/HtwProgramming/webtech-person-frontend
