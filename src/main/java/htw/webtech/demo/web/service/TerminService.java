@@ -36,7 +36,7 @@ public class TerminService {
 
     public Termin create(TerminManipulationRequest request) {
         var owner = kundeRepository.findById(request.getOwnerId()).orElseThrow();
-        var terminEntity = new TerminEntity(request.getTermindate() , owner);
+        var terminEntity = new TerminEntity(request.getTermindate(), owner);
         terminEntity = terminRepository.save(terminEntity);
         return transformEntity(terminEntity);
     }

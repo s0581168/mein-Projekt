@@ -2,6 +2,7 @@ package htw.webtech.demo.web.api;
 
 import javax.validation.constraints.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class KundeManipulationRequest {
     @Size(min = 3 , message = "Please provide a first name with 3 characters or more.")
@@ -12,14 +13,14 @@ public class KundeManipulationRequest {
 
 
     @Past(message = "the geburtsdatum must to be the past.")
-    private Date geburtsDatum;
+    private LocalDate geburtsDatum;
 
 
 
     private Integer telefonnumer;
 
 
-    public KundeManipulationRequest(String firstName, String lastName, Date geburtsDatum, Integer telefonnumer) {
+    public KundeManipulationRequest(String firstName, String lastName, LocalDate geburtsDatum, Integer telefonnumer) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,11 +46,11 @@ public class KundeManipulationRequest {
         this.lastName = lastName;
     }
 
-    public Date getGeburtsDatum() {
+    public LocalDate getGeburtsDatum() {
         return geburtsDatum;
     }
 
-    public void setGeburtsDatum(Date geburtsDatum) {
+    public void setGeburtsDatum(LocalDate geburtsDatum) {
         this.geburtsDatum = geburtsDatum;
     }
 

@@ -1,15 +1,20 @@
 package htw.webtech.demo.web.api;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Timer;
+import java.sql.Time;
 
 public class Termin {
 
     private Long id;
-    private LocalDate termindate;
+    private LocalDateTime termindate;
+
 
     private Kunde kunde;
 
-    public Termin(Long id, LocalDate termindate, Kunde kunde) {
+    public Termin(Long id, LocalDateTime termindate, Kunde kunde) {
         this.id = id;
         this.termindate = termindate;
         this.kunde = kunde;
@@ -23,11 +28,11 @@ public class Termin {
         this.id = id;
     }
 
-    public LocalDate getTermindate() {
+    public LocalDateTime getTermindate() {
         return termindate;
     }
 
-    public void setTermindate(LocalDate termindate) {
+    public void setTermindate(LocalDateTime termindate) {
         this.termindate = termindate;
     }
 

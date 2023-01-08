@@ -1,27 +1,30 @@
 package htw.webtech.demo.web.api;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 
 public class TerminManipulationRequest {
 
-    private LocalDate termindate;
+    private LocalDateTime termindate;
+
     private Long ownerId;
 
-    public TerminManipulationRequest(LocalDate termindate, Long ownerId) {
+    public TerminManipulationRequest(LocalDateTime termindate, Long ownerId) {
         this.termindate = termindate;
         this.ownerId = ownerId;
     }
 
     public TerminManipulationRequest() {}
 
-    public LocalDate getTermindate() {
+    public LocalDateTime getTermindate() {
         return termindate;
     }
 
-    public void setTermindate(LocalDate termindate) {
+    public void setTermindate(LocalDateTime termindate) {
         this.termindate = termindate;
     }
-
     public Long getOwnerId() {
         return ownerId;
     }

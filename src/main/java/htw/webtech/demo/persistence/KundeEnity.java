@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class KundeEnity {
     private String lastName;
 
     @Column(name = "geburt_datum")
-    private Date geburtsDatum;
+    private LocalDate geburtsDatum;
 
     @Column(name = "telefonnummer")
     private Integer telefonnummer;
@@ -35,7 +37,7 @@ public class KundeEnity {
     private List<TerminEntity> termine = new ArrayList<>();
 
 
-    public KundeEnity(String firstName, String lastName, Date geburtsDatum, Integer telefonnummer) {
+    public KundeEnity(String firstName, String lastName, LocalDate geburtsDatum, Integer telefonnummer) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.geburtsDatum = geburtsDatum;
@@ -64,11 +66,11 @@ public class KundeEnity {
         this.lastName = lastName;
     }
 
-    public Date getGeburtsDatum() {
+    public LocalDate getGeburtsDatum() {
         return geburtsDatum;
     }
 
-    public void setGeburtsDatum(Date geburtsDatum) {
+    public void setGeburtsDatum(LocalDate geburtsDatum) {
         this.geburtsDatum = geburtsDatum;
     }
 

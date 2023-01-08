@@ -2,6 +2,7 @@ package htw.webtech.demo.web.api;
 
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Kunde {
@@ -10,13 +11,13 @@ public class Kunde {
     private String firstName;
     private String lastName;
 
-    private Date geburtsDatum;
+    private LocalDate geburtsDatum;
 
     private Integer telefonnummer;
 
     private List<Long> termine;
 
-    public Kunde(long id, String firstName, String lastName, Date geburtsDatum, Integer telefonnummer, List<Long> termine) {
+    public Kunde(long id, String firstName, String lastName, LocalDate geburtsDatum, Integer telefonnummer, List<Long> termine) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -49,11 +50,11 @@ public class Kunde {
         this.lastName = lastName;
     }
 
-    public Date getGeburtsDatum() {
+    public LocalDate getGeburtsDatum() {
         return geburtsDatum;
     }
 
-    public void setGeburtsDatum(Date geburtsDatum) {
+    public void setGeburtsDatum(LocalDate geburtsDatum) {
         this.geburtsDatum = geburtsDatum;
     }
 

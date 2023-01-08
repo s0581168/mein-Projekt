@@ -2,8 +2,12 @@ package htw.webtech.demo.persistence;
 
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
+import java.util.Timer;
 
 @Entity(name = "termine")
 public class TerminEntity {
@@ -14,7 +18,8 @@ public class TerminEntity {
     private Long id;
 
     @Column(name = "name", nullable = false)
-    private LocalDate termindate;
+    private LocalDateTime termindate;
+
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
@@ -23,7 +28,7 @@ public class TerminEntity {
     public TerminEntity(){
     }
 
-    public TerminEntity(LocalDate termindate, KundeEnity owner) {
+    public TerminEntity(LocalDateTime termindate ,KundeEnity owner) {
         this.termindate = termindate;
         this.owner = owner;
     }
@@ -32,11 +37,11 @@ public class TerminEntity {
         return id;
     }
 
-    public LocalDate getTermindate() {
+    public LocalDateTime getTermindate() {
         return termindate;
     }
 
-    public void setTermindate(LocalDate termindate) {
+    public void setTermindate(LocalDateTime termindate) {
         this.termindate = termindate;
     }
 
